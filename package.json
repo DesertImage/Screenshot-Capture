@@ -6,6 +6,6 @@
     "unity": "2017.4",
     "keywords": [],
     "dependencies": {
-    "com.unity.editorcoroutines.tests": "1.0.0"
+    "com.unity.editorcoroutines": "1.0.0"
   }
 }
