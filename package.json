@@ -1,20 +1,11 @@
-{
-  "name": "com.unity.screenshotcapture",
-  "version": "0.1",
-  "displayName": "Screenshot Capture",
-  "description": "Provides ability to make screenshots with multiple resolution",
-  "unity": "2020.3",
-  "unityRelease": "0f1",
-  "dependencies": {},
-  "relatedPackages": {
+  {
+    "name": "com.brushwork.screenshotcapture",
+    "version": "0.1",
+    "displayName": "Screenshot Capture",
+    "description": "Provides ability to make screenshots with multiple resolution",
+    "unity": "2017.4",
+    "keywords": [],
+    "relatedPackages": {
     "com.unity.editorcoroutines.tests": "1.0.0"
-
- "keywords": [
-    "screenshot",
-    "multiple",
-  ],
-
-  "author": {
-        "name": "Brushwork",
-    }
+  }
 }
