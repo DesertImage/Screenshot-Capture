@@ -1,6 +1,6 @@
   {
     "name": "com.brushwork.screenshotcapture",
-    "version": "0.1",
+    "version": "0.0.1",
     "displayName": "Screenshot Capture",
     "description": "Provides ability to make screenshots with multiple resolution",
     "unity": "2017.4",
