@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -94,8 +95,8 @@ namespace Kiddopia.Editor
                 {
                     GUILayout.FlexibleSpace();
 
-                    x = EditorGUILayout.IntField((int) resolution.x, GUILayout.Width(50));
-                    y = EditorGUILayout.IntField((int) resolution.y, GUILayout.Width(50));
+                    x = EditorGUILayout.IntField((int)resolution.x, GUILayout.Width(50));
+                    y = EditorGUILayout.IntField((int)resolution.y, GUILayout.Width(50));
 
                     _resolutions[i] = new Vector2(x, y);
 
@@ -193,8 +194,8 @@ namespace Kiddopia.Editor
                 (
                     GameViewUtils.GameViewSizeType.FixedResolution,
                     GameViewSizeGroupType.Android,
-                    (int) resolution.x,
-                    (int) resolution.y,
+                    (int)resolution.x,
+                    (int)resolution.y,
                     string.Empty
                 );
 
@@ -227,3 +228,4 @@ namespace Kiddopia.Editor
         }
     }
 }
+#endif

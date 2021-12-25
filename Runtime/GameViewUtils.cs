@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.Reflection;
 
 namespace Kiddopia.Editor
@@ -51,9 +52,9 @@ namespace Kiddopia.Editor
                 typeof(string)
             });
 
-            var newSize = ctor.Invoke(new object[] {(int) viewSizeType, width, height, name});
+            var newSize = ctor.Invoke(new object[] { (int)viewSizeType, width, height, name });
 
-            addCustomSize.Invoke(group, new[] {newSize});
+            addCustomSize.Invoke(group, new[] { newSize });
         }
 
         public static void AddAndSetCustomSize(GameViewSizeType viewSizeType, GameViewSizeGroupType sizeGroupType,
@@ -107,7 +108,7 @@ namespace Kiddopia.Editor
             var groupType = group.GetType();
             var getBuiltinCount = groupType.GetMethod("GetBuiltinCount");
             var getCustomCount = groupType.GetMethod("GetCustomCount");
-            var sizesCount = (int) getBuiltinCount.Invoke(group, null) + (int) getCustomCount.Invoke(group, null);
+            var sizesCount = (int)getBuiltinCount.Invoke(group, null) + (int)getCustomCount.Invoke(group, null);
             var getGameViewSize = groupType.GetMethod("GetGameViewSize");
             var gvsType = getGameViewSize.ReturnType;
             var widthProp = gvsType.GetProperty("width");
@@ -119,8 +120,8 @@ namespace Kiddopia.Editor
                 indexValue[0] = i;
 
                 var size = getGameViewSize.Invoke(group, indexValue);
-                var sizeWidth = (int) widthProp.GetValue(size, null);
-                var sizeHeight = (int) heightProp.GetValue(size, null);
+                var sizeWidth = (int)widthProp.GetValue(size, null);
+                var sizeHeight = (int)heightProp.GetValue(size, null);
 
                 if (sizeWidth == width && sizeHeight == height) return i;
             }
@@ -130,13 +131,14 @@ namespace Kiddopia.Editor
 
         static object GetGroup(GameViewSizeGroupType type)
         {
-            return getGroup.Invoke(gameViewSizesInstance, new object[] {(int) type});
+            return getGroup.Invoke(gameViewSizesInstance, new object[] { (int)type });
         }
 
         public static GameViewSizeGroupType GetCurrentGroupType()
         {
             var getCurrentGroupTypeProp = gameViewSizesInstance.GetType().GetProperty("currentGroupType");
-            return (GameViewSizeGroupType) (int) getCurrentGroupTypeProp.GetValue(gameViewSizesInstance, null);
+            return (GameViewSizeGroupType)(int)getCurrentGroupTypeProp.GetValue(gameViewSizesInstance, null);
         }
     }
 }
+#endif
